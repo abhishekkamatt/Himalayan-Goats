@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Himalayan Goats — Coming Soon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --sky1:#fff1e0; --sky2:#f6c9a6; --sky3:#e9a08a;
+  --m1:#b9a3b8; --m2:#8d7a9c; --m3:#5e5478; --m4:#3b3552;
+  --text:#2a2238; --muted:#5b4f6b; --accent:#c4472f; --chip:rgba(255,255,255,.55); --chipb:rgba(42,34,56,.15);
+  --star:0;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --sky1:#0d1230; --sky2:#26274f; --sky3:#6b4a6e;
+    --m1:#4a4872; --m2:#363358; --m3:#25233f; --m4:#15142a;
+    --text:#f5efe6; --muted:#b9b2c9; --accent:#ffb347; --chip:rgba(255,255,255,.07); --chipb:rgba(255,255,255,.18);
+    --star:1;
+  }
+}
+:root[data-theme="dark"]{
+  --sky1:#0d1230; --sky2:#26274f; --sky3:#6b4a6e;
+  --m1:#4a4872; --m2:#363358; --m3:#25233f; --m4:#15142a;
+  --text:#f5efe6; --muted:#b9b2c9; --accent:#ffb347; --chip:rgba(255,255,255,.07); --chipb:rgba(255,255,255,.18);
+  --star:1;
+}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0;min-height:100%;color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 55%,var(--sky3) 100%);
+  background-color:var(--sky2);
+  overflow-x:hidden;
+}
+.stage{position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 24px 38vh}
+#stars{position:absolute;inset:0;opacity:var(--star);transition:opacity .4s;pointer-events:none}
+#stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;animation:tw 3s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}
+.content{position:relative;z-index:2;max-width:760px;animation:rise 1s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:var(--chip);border:1px solid var(--chipb);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);backdrop-filter:blur(6px)}
+.badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}70%{box-shadow:0 0 0 9px transparent}}
+h1{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:700;font-size:clamp(2.8rem,10vw,6rem);line-height:.98;letter-spacing:-.02em;margin:22px 0 18px}
+h1 span{display:block;color:var(--accent)}
+p.lead{font-size:clamp(1rem,2.6vw,1.2rem);line-height:1.6;color:var(--muted);margin:0 auto 28px;max-width:540px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:8px}
+.chips li{list-style:none;padding:8px 16px;border-radius:999px;background:var(--chip);border:1px solid var(--chipb);font-size:14px;font-weight:500;backdrop-filter:blur(6px)}
+ul.chips{padding:0;margin:0}
+.mountains{position:absolute;left:0;right:0;bottom:0;width:100%;height:42vh;min-height:220px;z-index:1;display:block}
+.mountains path{transition:fill .4s}
+.cloud{position:absolute;z-index:1;height:26px;border-radius:30px;background:var(--chip);filter:blur(2px);animation:drift linear infinite}
+.cloud.a{width:140px;top:16%;left:-160px;animation-duration:60s}
+.cloud.b{width:200px;top:30%;left:-220px;animation-duration:90s;animation-delay:-35s}
+@keyframes drift{to{transform:translateX(calc(100vw + 400px))}}
+footer{position:absolute;z-index:3;bottom:14px;left:0;right:0;font-size:12px;letter-spacing:.08em;color:var(--muted);padding:0 16px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<main class="stage">
+  <div id="stars" aria-hidden="true"></div>
+  <div class="cloud a" aria-hidden="true"></div>
+  <div class="cloud b" aria-hidden="true"></div>
+
+  <div class="content">
+    <span class="badge">Coming Soon</span>
+    <h1>Himalayan <span>Goats</span></h1>
+    <p class="lead">Wild trails, high passes and stories from the roof of the world. Our travel home in the mountains is almost ready.</p>
+    <ul class="chips">
+      <li>Treks</li><li>Road Trips</li><li>Stays</li><li>Travel Stories</li>
+    </ul>
+  </div>
+
+  <svg class="mountains" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="var(--m1)" d="M0 260 L120 190 L220 240 L360 130 L480 230 L610 160 L740 250 L880 120 L1010 220 L1130 170 L1270 240 L1440 150 L1440 400 L0 400Z"/>
+    <path fill="var(--m2)" d="M0 300 L150 230 L260 280 L420 190 L560 290 L700 210 L840 300 L990 200 L1120 280 L1260 220 L1440 290 L1440 400 L0 400Z"/>
+    <path fill="var(--m3)" d="M0 340 L130 290 L270 330 L430 270 L580 335 L740 280 L900 340 L1050 285 L1200 335 L1330 295 L1440 330 L1440 400 L0 400Z"/>
+    <path fill="var(--m4)" d="M0 375 L200 345 L380 372 L560 340 L760 374 L960 346 L1160 373 L1320 350 L1440 370 L1440 400 L0 400Z"/>
+  </svg>
+
+  <footer>&copy; <span id="y"></span> Himalayan Goats</footer>
+</main>
+<script>
+(function(){
+  var s=document.getElementById('stars'),h='';
+  for(var i=0;i<70;i++){
+    h+='<i style="left:'+(Math.random()*100).toFixed(1)+'%;top:'+(Math.random()*60).toFixed(1)+'%;animation-delay:'+(Math.random()*3).toFixed(1)+'s"></i>';
+  }
+  s.innerHTML=h;
+  document.getElementById('y').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
